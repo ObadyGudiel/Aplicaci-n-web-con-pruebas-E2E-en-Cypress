@@ -1,0 +1,26 @@
+name: Cypress E2E
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Guardar evidencia de fallos
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-evidence
+          path: |
+            cypress/screenshots
+            cypress/videos
+          if-no-files-found: ignore

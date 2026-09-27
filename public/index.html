@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Café</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <img class="hero-art" src="/images/coffee-cup.png" alt="Taza de café humeante" />
+      <p class="eyebrow">La Taza Dorada</p>
+      <h1>Tu pedido, preparado con calma.</h1>
+      <p>Elige tus favoritos y confirma en un solo paso.</p>
+    </header>
+    <main class="layout">
+      <section aria-labelledby="products-heading">
+        <div class="section-heading">
+          <p class="eyebrow">Menú de hoy</p>
+          <h2 id="products-heading">Productos</h2>
+        </div>
+        <div id="products" class="products" aria-live="polite"></div>
+      </section>
+      <aside class="cart" aria-labelledby="cart-heading">
+        <div class="section-heading">
+          <p id="cart-eyebrow" class="eyebrow">Pedido actual</p>
+          <h2 data-cy="cart-heading" id="cart-heading">Tu carrito</h2>
+        </div>
+        <ul id="cart-items" class="cart-items" aria-live="polite"></ul>
+        <p id="empty-cart" class="empty-cart">Aún no has agregado productos.</p>
+        <div class="total-row">
+          <span>Total</span>
+          <strong data-cy="cart-total" id="cart-total">Q 0.00</strong>
+        </div>
+        <p id="order-error" data-cy="order-error" class="message error" role="alert"></p>
+        <div id="order-success" data-cy="order-success" class="message success" role="status"></div>
+        <button data-cy="confirm-order" id="confirm-order" class="primary" type="button">Confirmar pedido</button>
+      </aside>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
